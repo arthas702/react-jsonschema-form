@@ -1,24 +1,42 @@
 module.exports = {
   schema: {
+    definitions: {
+      TypeA: {
+        type: "object",
+        properties: {
+          a: {
+            type: "number",
+          },
+        },
+      },
+      TypeB: {
+        type: "object",
+        properties: {
+          b: {
+            type: "string",
+          },
+        },
+      },
+    },
     type: "object",
     oneOf: [
       {
         properties: {
-          lorem: {
-            type: "string",
-          },
+          lorem: { $ref: "#/definitions/TypeA" },
         },
         required: ["lorem"],
       },
       {
         properties: {
-          ipsum: {
-            type: "string",
-          },
+          ipsum: { $ref: "#/definitions/TypeB" },
         },
         required: ["ipsum"],
       },
     ],
   },
-  formData: {},
+  formData: {
+    ipsum: {
+      b: "wwww",
+    },
+  },
 };

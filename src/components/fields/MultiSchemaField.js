@@ -29,6 +29,9 @@ class AnyOfField extends Component {
   }
 
   getMatchingOption(formData, options) {
+    const { registry } = this.props;
+    const { definitions } = registry;
+
     for (let i = 0; i < options.length; i++) {
       const option = options[i];
 
@@ -68,7 +71,7 @@ class AnyOfField extends Component {
         } else {
           augmentedSchema = Object.assign({}, option, requiresAnyOf);
         }
-
+        augmentedSchema.definitions = definitions;
         if (isValid(augmentedSchema, formData)) {
           return i;
         }
