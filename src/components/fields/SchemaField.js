@@ -356,6 +356,7 @@ function SchemaFieldRender(props) {
           registry={registry}
           safeRenderCompletion={props.safeRenderCompletion}
           uiSchema={uiSchema}
+          formContext={formContext}
         />
       )}
 
@@ -374,6 +375,7 @@ function SchemaFieldRender(props) {
           registry={registry}
           safeRenderCompletion={props.safeRenderCompletion}
           uiSchema={uiSchema}
+          formContext={formContext}
         />
       )}
     </FieldTemplate>
